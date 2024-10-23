@@ -1,6 +1,5 @@
 import streamlit as st
 import numpy as np
-from scipy.special import erf
 import math
 from rdkit import Chem
 from rdkit.Chem import AllChem
@@ -38,7 +37,7 @@ with tab1:
                     mol = Chem.MolFromSmiles(input_str)
 
                 if mol is None:
-                    raise ValueError("無効なInChIまたはSMILES入力です。")
+                    raise ValueError("無効な入力")
 
                 # 水素を追加し、3D構造を生成
                 mol = Chem.AddHs(mol)
