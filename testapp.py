@@ -507,7 +507,7 @@ else:
 
                     F = H_core + J - 0.5 * K  # フォック行列
 
-        #フォック行列の対角化FC=SCε
+        #フォック行列の対角化FC=SCεerf
         F_prime = S_inv_sqrt @ F @ S_inv_sqrt
                     eigenvalues_F, eigenvectors_F = np.linalg.eigh(F_prime)
                     C_prime = eigenvectors_F

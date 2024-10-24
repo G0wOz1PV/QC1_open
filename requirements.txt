@@ -2,3 +2,4 @@ Pillow==10.4.0
 rdkit==2024.3.5
 periodictable==1.7.1
 matplotlib==3.9.2
+scipy==1.13.1
