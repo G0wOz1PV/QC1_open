@@ -300,10 +300,10 @@ with tab1:
                     D_new = np.zeros((nbf, nbf))
                     def calculate_electron_count(inchi):
                         # InChIから分子を生成
-                        molecule = Chem.MolFromInchi(inchi)
-                        if molecule is None:
-                            raise ValueError("無効なInChI形式です。")
-
+                        mol = Chem.MolFromInchi(inchi)
+                        if mol is None:
+                            return 0
+                        
                         # 電子数を計算
                         electron_count = sum(atom.GetNumElectrons() for atom in molecule.GetAtoms())
                         return electron_count
