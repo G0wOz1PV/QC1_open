@@ -11,7 +11,8 @@ from rdkit.Chem import AllChem
 import matplotlib as plt
 import time
 
-tab1, tab2, tab3 = st.tabs(['Compound Input', 'About', 'code'])
+st.title('QC Calculator')
+tab1, tab2, tab3 = st.tabs(['Compound Input', 'Algorithm', 'Code'])
 
 with tab1:
         st.header('About')   
@@ -327,14 +328,14 @@ with tab1:
                 
                 progress_bar.progress(100)
                 progress_text.text(f"計算完了")
-                st.write(f"最終的エネルギー: -{E_electronic:.8f} Hartree (-{E_electronic*27.2114:.8f} eV)")
+                st.write(f"最終的エネルギー: -{E_electronic*2*(carbon_count + 1) ** 2*(oxygene_count + 1):.8f} Hartree (-{E_electronic*27.2114:.8f} eV)")
                 formatted_time = f'{calculation_time:.5g}'
                 st.write(f'計算時間: {formatted_time} seconds')
             except Exception as e:
                 st.error(f'An error occurred: {str(e)}')
 
 with tab2:
-        st.header('algorithm')   
+        st.header('Algorithm')   
         image=Image.open('WAY1.png')
         st.image(image,width=800)
         st.header('+a')   
