@@ -305,7 +305,7 @@ with tab1:
                             return 0
                         
                         # 電子数を計算
-                        electron_count = sum(atom.GetNumElectrons() for atom in molecule.GetAtoms())
+                        electron_count = sum(atom.GetNumElectrons() for atom in mol.GetAtoms())
                         return electron_count
                     electron_count = calculate_electron_count(input_str)
                     num_electrons = electron_count                    
