@@ -28,6 +28,8 @@ with tab1:
                  1/CH4/h1H4
         
         分子量が大きいと計算時間が多くなってしまうのでご留意ください
+                 
+
         """)
         st.header('Enter Compound')
         input_str = st.text_input('Enter InChI:')
@@ -328,7 +330,7 @@ with tab1:
                 
                 progress_bar.progress(100)
                 progress_text.text(f"計算完了")
-                st.write(f"最終的エネルギー: -{E_electronic*2*(carbon_count + 1) ** 2*(oxygene_count + 1):.8f} Hartree (-{E_electronic*27.2114:.8f} eV)")
+                st.write(f"最終的エネルギー: -{E_electronic:.8f} Hartree (-{E_electronic*27.2114:.8f} eV)")
                 formatted_time = f'{calculation_time:.5g}'
                 st.write(f'計算時間: {formatted_time} seconds')
             except Exception as e:
