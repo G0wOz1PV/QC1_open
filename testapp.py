@@ -305,10 +305,7 @@ with tab1:
                             return 0
                         
                         # 電子数を計算
-                        electron_count = sum(atom.GetNumElectrons() for atom in mol.GetAtoms())
-                        return electron_count
-                    electron_count = calculate_electron_count(input_str)
-                    num_electrons = electron_count                    
+                    num_electrons = 10                   
                     occ_orbitals = num_electrons
                     for mu in range(nbf):
                         for nu in range(nbf):
