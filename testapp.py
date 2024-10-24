@@ -11,7 +11,6 @@ from rdkit.Chem import AllChem
 import matplotlib as plt
 import time
 
-
 tab1, tab2, tab3 = st.tabs(['Compound Input', 'About', 'code'])
 
 with tab1:
@@ -270,7 +269,6 @@ with tab1:
                 progress_bar.progress((5) * 100 // 7)
                 progress_text.text(f"計算中... 71% 完了")
 
-
                 max_scf_iter = 1000
                 convergence_threshold = 1e-6
 
@@ -335,7 +333,7 @@ with tab1:
             except Exception as e:
                 st.error(f'An error occurred: {str(e)}')
 
-    with tab2:
+with tab2:
         st.header('algorithm')   
         image=Image.open('WAY1.png')
         st.image(image,width=800)
@@ -348,7 +346,7 @@ with tab1:
                  STEP09.PES最短経路(=遷移状態)探索)
                  ''')
 
-    with tab3:
+with tab3:
         st.header('Code')
         st.write('STEP01.分子の構造定義')
         code = '''
