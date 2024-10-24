@@ -298,7 +298,17 @@ with tab1:
                     C = S_inv_sqrt @ C_prime
 
                     D_new = np.zeros((nbf, nbf))
-                    num_electrons = 10                    
+                    def calculate_electron_count(inchi):
+                        # InChIから分子を生成
+                        molecule = Chem.MolFromInchi(inchi)
+                        if molecule is None:
+                            raise ValueError("無効なInChI形式です。")
+
+                        # 電子数を計算
+                        electron_count = sum(atom.GetNumElectrons() for atom in molecule.GetAtoms())
+                        return electron_count
+                    electron_count = calculate_electron_count(input_str)
+                    num_electrons = electron_count                    
                     occ_orbitals = num_electrons
                     for mu in range(nbf):
                         for nu in range(nbf):
