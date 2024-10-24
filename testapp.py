@@ -10,37 +10,24 @@ from rdkit import Chem
 from rdkit.Chem import AllChem
 import matplotlib as plt
 import time
-from streamlit_javascript import st_javascript
 
-user_agent = st_javascript("return navigator.userAgent;")
-def is_mobile(user_agent):
-    mobile_devices = ['iphone', 'ipad', 'ipod', 'android', 'blackberry', 
-                      'bb', 'playbook', 'silk', 'opera mini', 'webos', 
-                      'windows phone', 'iemobile', 'mobile']
-    user_agent = user_agent.lower()
-    return any(device in user_agent for device in mobile_devices)
 
-if user_agent and is_mobile(user_agent):
-    st.warning("Please access from your computer.")
-    st.stop()
-else:
-    st.title('Quantum Chemistry Calculator')
+tab1, tab2, tab3 = st.tabs(['Compound Input', 'About', 'code'])
 
-    tab1, tab2, tab3 = st.tabs(['Compound Input', 'About', 'code'])
-
-    with tab1:
+with tab1:
         st.header('About')   
         st.write("""
         量子化学計算は量子力学の原理を用いて化学物性や化学反応を計算します。
                  
+        下のEnter Compoundに有機化合物のInChIを入力するとab initio法HF計算6-31G基底により、与えられた化合物のポテンシャルエネルギーが導出されます。
         
-        InChIを入力するとab initio法HF計算6-31G基底により与えられた化合物のポテンシャルエネルギーが導出されます。
-        
-        InChIは線形の化合物命名法です。https://www.wikipedia.org/ で調べたら出てきます。
+        （InChIとは線形の化合物命名法です。https://www.wikipedia.org/ で化合物名を調べたら出てきます。）
                  
         例）メタン分子
                  
                  1/CH4/h1H4
+        
+        分子量が大きいと計算時間が多くなってしまうのでご留意ください
         """)
         st.header('Enter Compound')
         input_str = st.text_input('Enter InChI:')
